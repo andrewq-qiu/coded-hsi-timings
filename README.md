@@ -23,9 +23,9 @@ void setup() {
 }
 
 void loop() {
-    digitalWrite(led, delayUs);
+    digitalWrite(led, HIGH);
     delayMicroseconds(delayUs);
-    digitalWrite(led, delayUs);
+    digitalWrite(led, LOW);
     delayMicroseconds(delayUs);
 }
 ```
@@ -48,6 +48,25 @@ A single LED (in this case, violet) is chosen. This LED is switched on/off as fa
 ![digWrite](./plots/digWrite.png)
 
 Rises in the signal correspond to digitalWrite HIGHs and (short) falls corresponds to digitalWrite LOWs. The duration of these rises and falls correspond to the duration of a digitalWrite call. We measure these durations using the scope.
+
+### Sample Arduino Code
+
+```
+int led = ...;
+
+void setup() {
+    pinMode(led, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(led, HIGH);
+    digitalWrite(led, LOW);
+    digitalWrite(led, HIGH);
+    digitalWrite(led, LOW);
+    digitalWrite(led, HIGH);
+    digitalWrite(led, LOW);
+}
+```
 
 ### Results
 
